@@ -2,20 +2,29 @@
 
 Quick guide:
 
+NOTE: The zoom meeting ID should be created from the personal zoom room of the person who is adding this zoom app, and managing the breakout rooms.
+
 Create a OAuth zoom app in order to get client id, client secret, access tokens:
 The instructions are at:
 https://github.com/zoom/zoom-oauth-sample-app
 
-Follow the instructions in the above link to launch ngrok, which gives the redirection url.
+Follow the instructions in the above link to launch ngrok, which gives the redirection url. To install npm and node, this link can be used https://nodejs.org/en/download. To install ngrok, this website has the instructions https://ngrok.com/download.
+
+While creating the OAuth app, you can add an app name of your choice, select User-managed app, Add the redirectURL at "Redirect URL for OAuth" and also at "Add Allow List".
+Note that after updating the .env file, rerun the local app using "npm run start", and then authorize the zoom app.
 
 After following the above instructions, we should have access_token, refresh_token, update them in the token_secrets.json.
 Then start a zoom meeting, using the meeting id (appers a number after /j/ in the url) in sample_breakout.py, can create breakout rooms.
 
+update the zoom_secrets.json file
+
 sample_breakout.py is a simple test python program. It only creates breakout rooms and sets the assignment. The host has to leave and join back again to see the changes in the assignment.
 Only when open-rooms is clicked in the breakout rooms, people will be joining the breakout rooms.
+After review of each paper, to assign different members to the breakout rooms, set_breakouts.py is used. Note that this script only sets the assignment of the members to the breakout rooms. The host has to leave and join back again, to see the assignment of the members to the breakout rooms. And then when the breakout rooms are opened, the members are moved to the breakout rooms.
+The action of leaving and joining back the zoom meeting is automated using applescript, the code is in the script zoom-breakout.applescript
 
 
-Original documentation:
+Documentation of different commands and scripts:
 
 Important configuration: `meeting.json` points to the meeting ID, for both the
 API and to join it with scripting.
