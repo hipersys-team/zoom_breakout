@@ -13,7 +13,7 @@ Follow the instructions in the above link to launch ngrok, which gives the redir
 While creating the OAuth app, you can add an app name of your choice, select User-managed app, Add the redirectURL at "Redirect URL for OAuth" and also at "Add Allow List".
 Note that after updating the .env file, rerun the local app using "npm run start", and then authorize the zoom app.
 
-After following the above instructions, we should have access_token, refresh_token, update them in the token_secrets.json.
+After following the above instructions, we should have access_token, refresh_token, update them in the token_secrets.json. The access_token and refresh_token is printed by the app server which was started by "npm run start".
 Then start a zoom meeting, using the meeting id (appers a number after /j/ in the url) in sample_breakout.py, can create breakout rooms.
 
 update the zoom_secrets.json file
@@ -69,3 +69,7 @@ interpolation; the analogous bash/zsh is `foo $(command)`.
     people by clicking through the UI. It gets the conflicts based on paper 70.
   - `./zoom-breakout.applescript moveTo= (./set_breakouts.py --name-json (./hotcrp_paper.py))` automatically fixes rooms based on the HotCRP tracker.
   - `./zoom-breakout.applescript leave join` will leave and re-join the PC meeting.
+
+License
+
+zoom_breakout repository is under MIT License
